@@ -1,9 +1,9 @@
 const express = require('express')
 
-module.exports = (server) => {
+module.exports = function(server) {
     const router = express.Router()
-    router.use('/api', router)
+    server.use('/api', router)
 
     const BillingCycle = require('../api/billingCycle/billingCycleService')
-    BillingCycle.register(router, '/billingCycles')
+    BillingCycle.register(router, '/billing-cycles')
 }
